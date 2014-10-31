@@ -61,7 +61,6 @@ def MCMC(X,Y, b=0):
 def test_data_set():
     '''
     Return test data (X, Y) and model parameters.
-    N = integer (feature size)
     '''
     global N
     
