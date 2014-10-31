@@ -33,7 +33,7 @@ def LogLikelihood(T,X,Y):
         else: log_L -= log(1+E_t)
     return log_L
 
-def MCMC(X,Y, b=0):
+def MCMC(X,Y, b=5000):
     '''
     Return sampling chain.
     Metropolis Hastings Algorithm.
@@ -45,7 +45,7 @@ def MCMC(X,Y, b=0):
     curr = deepcopy(Theta)
     Chain = []
 
-    for i in range(10000):
+    for i in range(15000):
         Prop = np.array([random.gauss(curr[j],.01) for j in range(N)])
         
         alpha = exp(LogLikelihood(Prop,X,Y) + LogPrior(Prop) -
@@ -93,14 +93,10 @@ if __name__ == '__main__':
     X, Y, T = test_data_set()
 
     print T
+    
     Chain = MCMC(X,Y)
-    plot([Chain[j][0] for j in range(len(Chain))])
-    plot([Chain[j][1] for j in range(len(Chain))])
-        
-
+    t_1 = [Chain[j][0] for j in range(len(Chain))]
+    t_2 = [Chain[j][1] for j in range(len(Chain))]
     
-
-    
-
-
-        
+    plot(t_1)
+    plot(t_2)
