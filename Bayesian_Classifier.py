@@ -1,6 +1,5 @@
 import numpy as np
 from math import exp, log
-import csv
 import random
 import scipy.stats
 import matplotlib.pyplot as plt
@@ -38,7 +37,7 @@ def MCMC(X,Y, b=5000):
     Return sampling chain.
     Metropolis Hastings Algorithm.
     X = numpy array of arrays, Y = numpy array.
-    b = burn in period (int) (default=1000).
+    b = burn in period (int) (default=5000).
     '''
     global Theta, N
 
